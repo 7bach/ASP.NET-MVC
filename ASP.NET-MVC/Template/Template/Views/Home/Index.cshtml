@@ -1,8 +1,15 @@
-﻿@model IEnumerable<ShopDienThoaiConnection.SanPham>
+﻿@model PetaPoco.Page<ShopDienThoaiConnection.SanPham>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
 <!-- Header End====================================================================== -->
 <div id="carouselBlk">
     <div id="myCarousel" class="carousel slide">
@@ -113,46 +120,30 @@
                     <li><a href="products.html">SPORTS & LEISURE [58]</a></li>
                     <li><a href="products.html">BOOKS & ENTERTAINMENTS [14]</a></li>
                 </ul>
-                <br />
-                <div class="thumbnail">
-                    <img src="~/Template/themes/images/products/panasonic.jpg" alt="Bootshop panasonoc New camera" />
-                    <div class="caption">
-                        <h5>Panasonic</h5>
-                        <h4 style="text-align:center"><a class="btn" href="product_details.html"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">$222.00</a></h4>
-                    </div>
-                </div><br />
-                <div class="thumbnail">
-                    <img src="~/Template/themes/images/products/kindle.png" title="Bootshop New Kindel" alt="Bootshop Kindel">
-                    <div class="caption">
-                        <h5>Kindle</h5>
-                        <h4 style="text-align:center"><a class="btn" href="product_details.html"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">$222.00</a></h4>
-                    </div>
-                </div><br />
-                <div class="thumbnail">
-                    <img src="~/Template/themes/images/payment_methods.png" title="Bootshop Payment Methods" alt="Payments Methods">
-                    <div class="caption">
-                        <h5>Payment Methods</h5>
-                    </div>
-                </div>
             </div>
             <!-- Sidebar end=============================================== -->
-                <h4>Danh sách sản phẩm</h4>
-                <ul class="thumbnails">
-                    @foreach (var item in Model)
-                    {
-                        <li class="span3">
-                            <div class="thumbnail">
-                                <i class="tag"></i>
-                                <a href="@Url.Action("Details", "SanPham", new {id = item.MaSP})"><img style="width: 100px; height: 100px" src="~/Template/themes/images/products/@item.HinhAnh" alt=""></a>
-                                <div class="caption">
-                                    <h5>@item.TenSP</h5>
-                                    <h4><a class="btn" href="@Url.Action("Details", "SanPham", new {id = item.MaSP})">VIEW</a> <span class="pull-right">@item.GiaBan</span></h4>
-                                </div>
+            <h4>Danh sách sản phẩm</h4>
+            <ul class="thumbnails">
+                @foreach (var item in Model.Items)
+                {
+                    <li class="span3">
+                        <div class="thumbnail">
+                            <i class="tag"></i>
+                            <a href="@Url.Action("Details", "SanPham", new {id = item.MaSP})"><img style="width: 100px; height: 100px" src="~/Template/themes/images/products/@item.HinhAnh" alt=""></a>
+                            <div class="caption">
+                                <h5>@item.TenSP</h5>
+                                <h4><a class="btn" href="@Url.Action("Details", "SanPham", new {id = item.MaSP})">VIEW</a> <span class="pull-right">@item.GiaBan</span></h4>
                             </div>
-                        </li>
-                    }                 
-                </ul>
-
-            </div>
+                        </div>
+                    </li>
+                }                
+            </ul>
         </div>
+            <ul class="pagination">
+                @for (int i = 1; i < Model.TotalPages; i++)
+                {
+                    <li>@Html.ActionLink(i.ToString(), "Index", new { page = i })</li>
+                }
+            </ul>
+    </div>
 </div>

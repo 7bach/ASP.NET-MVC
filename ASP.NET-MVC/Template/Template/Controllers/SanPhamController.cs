@@ -12,7 +12,7 @@ namespace Template.Controllers
         // GET: SanPham
         public ActionResult Index()
         {
-            var DSSanPham = SanPhamBus.DanhSach();
+            var DSSanPham = SanPhamBus.DanhSach(2,3);
             return View(DSSanPham);
         }
 

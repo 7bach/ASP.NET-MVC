@@ -4,14 +4,15 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Template.Models.Bus;
-
 namespace Template.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            var DSSanPham = SanPhamBus.DanhSach();
+            int pageNumber = (page ?? 1);
+            int itemsPerPage = 6;
+            var DSSanPham = SanPhamBus.DanhSach(pageNumber,itemsPerPage);
             return View(DSSanPham);
         }
 
