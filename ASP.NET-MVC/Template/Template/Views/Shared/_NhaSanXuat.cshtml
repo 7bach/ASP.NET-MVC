@@ -1,0 +1,11 @@
+﻿@model IEnumerable<ShopDienThoaiConnection.HangSP>
+<li class="subMenu">
+    <a> HÃNG SẢN XUẤT </a>
+    <ul style="display: none">
+        @foreach (var item in Model)
+        {
+            <li><a href="products.html"><i class="icon-chevron-right"></i>@item.TenHang</a></li>    
+        }
+        
+    </ul>
+</li>
