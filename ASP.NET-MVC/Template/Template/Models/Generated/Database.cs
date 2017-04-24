@@ -171,6 +171,7 @@ namespace ShopDienThoaiConnection
 		[Column] public int? GiaBan { get; set; }
 		[Column] public int? SoLuong { get; set; }
 		[Column] public string ThongTin { get; set; }
+		[Column] public string GhiChu { get; set; }
 		[Column] public int? BiXoa { get; set; }
 	}
     

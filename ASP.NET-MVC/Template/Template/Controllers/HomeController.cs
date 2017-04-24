@@ -29,5 +29,11 @@ namespace Template.Controllers
 
             return View();
         }
+        public ActionResult Register()
+        {
+            ViewBag.Message = "Register";
+
+            return View();
+        }
     }
 }

@@ -243,3 +243,4 @@ E:\Cache\DemoLTWeb2\Project\ASP.NET-MVC\Template\Template\bin\Microsoft.Owin.Sec
 E:\Cache\DemoLTWeb2\Project\ASP.NET-MVC\Template\Template\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 E:\Cache\DemoLTWeb2\Project\ASP.NET-MVC\Template\Template\obj\Debug\Template.dll
 E:\Cache\DemoLTWeb2\Project\ASP.NET-MVC\Template\Template\obj\Debug\Template.pdb
+E:\Cache\DemoLTWeb2\Project\ASP.NET-MVC\Template\Template\obj\Debug\Template.csprojResolveAssemblyReference.cache
