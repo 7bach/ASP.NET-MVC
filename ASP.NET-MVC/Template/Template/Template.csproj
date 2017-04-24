@@ -196,10 +196,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\LoaiSanPhamController.cs" />
     <Compile Include="Areas\Admin\Controllers\MainAdminController.cs" />
-    <Compile Include="Areas\Admin\Controllers\NhaSanXuatController.cs" />
-    <Compile Include="Areas\Admin\Controllers\SanPhamController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoaiSanPhamController.cs" />
@@ -1212,7 +1209,6 @@
     <Content Include="Models\Generated\PetaPoco.Core.ttinclude" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\Shared\_MainLayoutAdmin.cshtml" />
-    <Content Include="Areas\Admin\Views\NhaSanXuat\Index.cshtml" />
     <Content Include="Areas\Admin\Views\MainAdmin\Index.cshtml" />
     <Content Include="Areas\AccessAdmin\bootstrap\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Areas\AccessAdmin\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
@@ -1580,8 +1576,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\LoaiSanPham\" />
-    <Folder Include="Areas\Admin\Views\SanPham\" />
     <Folder Include="Template\themes\less\oregional\" />
   </ItemGroup>
   <ItemGroup>
