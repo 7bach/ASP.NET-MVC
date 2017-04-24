@@ -4,7 +4,7 @@
     <ul style="display: none">
         @foreach (var item in Model)
         {
-            <li><a href="products.html"><i class="icon-chevron-right"></i>@item.TenHang</a></li>    
+            <li><a href="@Url.Action("Index","NhaSanXuat", new {id=@item.MaHang})"><i class="icon-chevron-right"></i>@item.TenHang</a></li>    
         }
         
     </ul>

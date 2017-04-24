@@ -11,7 +11,7 @@ namespace Template.Controllers
         public ActionResult Index(int? page)
         {
             int pageNumber = (page ?? 1);
-            int itemsPerPage = 6;
+            int itemsPerPage = 3;
             var DSSanPham = SanPhamBus.DanhSach(pageNumber,itemsPerPage);
             return View(DSSanPham);
         }
