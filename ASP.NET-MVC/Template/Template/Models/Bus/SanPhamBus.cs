@@ -37,5 +37,15 @@ namespace Template.Models.Bus
             var db=new ShopDienThoaiConnectionDB();
             db.Insert(sp);
         }
+        public static void Sua(int id, SanPham sp)
+        {
+            var db = new ShopDienThoaiConnectionDB();
+            db.Update<SanPham>("Set TenSP = @0, BiXoa=0 where MaSP=@1", sp.TenSP, id);
+        }
+        public static void Xoa(int id)
+        {
+            var db = new ShopDienThoaiConnectionDB();
+            db.Update<SanPham>("Set BiXoa=1 where MaSP=@0", id);
+        }
     }
 }

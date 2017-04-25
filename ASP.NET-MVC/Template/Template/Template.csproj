@@ -1288,6 +1288,15 @@
     <Content Include="Areas\Admin\Views\SanPhamAdmin\Create.cshtml" />
     <Content Include="Areas\Admin\Views\NhaSanXuatAdmin\Create.cshtml" />
     <Content Include="Areas\Admin\Views\LoaiSanPhamAdmin\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiSanPhamAdmin\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiSanPhamAdmin\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\NhaSanXuatAdmin\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\NhaSanXuatAdmin\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\SanPhamAdmin\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\SanPhamAdmin\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\SanPhamAdmin\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\NhaSanXuatAdmin\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiSanPhamAdmin\Details.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

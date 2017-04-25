@@ -13,13 +13,15 @@ namespace Template.Areas.Admin.Controllers
         // GET: Admin/LoaiSanPhamAdmin
         public ActionResult Index()
         {
-            return View();
+            var db = LoaiSanPhamBus.DanhSach();
+            return View(db);
         }
 
         // GET: Admin/LoaiSanPhamAdmin/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var db = LoaiSanPhamBus.ChiTiet(id);
+            return View(db);
         }
 
         // GET: Admin/LoaiSanPhamAdmin/Create
@@ -47,17 +49,18 @@ namespace Template.Areas.Admin.Controllers
         // GET: Admin/LoaiSanPhamAdmin/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var db = LoaiSanPhamBus.ChiTiet(id);
+            return View(db);
         }
 
         // POST: Admin/LoaiSanPhamAdmin/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, LoaiSP lsp)
         {
             try
             {
-                // TODO: Add update logic here
-
+                 //TODO: Add update logic here
+                LoaiSanPhamBus.Sua(id, lsp);
                 return RedirectToAction("Index");
             }
             catch
@@ -69,7 +72,8 @@ namespace Template.Areas.Admin.Controllers
         // GET: Admin/LoaiSanPhamAdmin/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var db = LoaiSanPhamBus.ChiTiet(id);
+            return View(db);
         }
 
         // POST: Admin/LoaiSanPhamAdmin/Delete/5
@@ -79,7 +83,7 @@ namespace Template.Areas.Admin.Controllers
             try
             {
                 // TODO: Add delete logic here
-
+                LoaiSanPhamBus.Xoa(id);
                 return RedirectToAction("Index");
             }
             catch

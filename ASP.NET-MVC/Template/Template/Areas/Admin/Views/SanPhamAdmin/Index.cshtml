@@ -1,8 +1,94 @@
-﻿
+﻿@model IEnumerable<ShopDienThoaiConnection.SanPham>
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_MainLayoutAdmin.cshtml";
 }
 
-<h2>Index Trang Sản Phẩm</h2>
+<h2>TRANG CHỦ</h2>
 
+<p>
+    @Html.ActionLink("Tạo mới", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            <label class="control-label col-lg-2">Mã sản phẩm</label>
+        </th>
+        <th>
+            <label class="control-label col-lg-2">Tên sản phẩm</label>
+        </th>
+        <th>
+            <label class="control-label col-lg-2">Mã hãng</label>
+        </th>
+        <th>
+            <label class="control-label col-lg-2">Mã loại</label>
+        </th>
+        <th>
+            <label class="control-label col-lg-2">Url hình ảnh</label>
+        </th>
+        <th>
+            <label class="control-label col-lg-2">Mã tình trạng</label>
+        </th>
+        <th>
+            <label class="control-label col-lg-2">Giá bán</label>
+        </th>
+        <th>
+            <label class="control-label col-lg-2">Số lượng</label>
+        </th>
+        <th>
+            <label class="control-label col-lg-2">Thông tin</label>
+        </th>
+        <th>
+            <label class="control-label col-lg-2">Ghi chú</label>
+        </th>
+        <th>
+            <label class="control-label col-lg-2">Bị xóa</label>
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaSP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenSP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaHang)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaLoai)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HinhAnh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TinhTrang)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GiaBan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoLuong)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ThongTin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GhiChu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BiXoa)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Edit", new { id=item.MaSP }) |
+            @Html.ActionLink("Chi tiết", "Details", new {  id=item.MaSP }) |
+            @Html.ActionLink("Xóa", "Delete", new {  id=item.MaSP })
+        </td>
+    </tr>
+}
+
+</table>

@@ -13,13 +13,15 @@ namespace Template.Areas.Admin.Controllers
         // GET: Admin/SanPhamAdmin
         public ActionResult Index()
         {
-            return View();
+            var db = SanPhamBus.DanhSach();
+            return View(db);
         }
 
         // GET: Admin/SanPhamAdmin/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var db = SanPhamBus.ChiTiet(id);
+            return View(db);
         }
 
         // GET: Admin/SanPhamAdmin/Create
@@ -50,17 +52,22 @@ namespace Template.Areas.Admin.Controllers
         // GET: Admin/SanPhamAdmin/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+
+            ViewBag.MaHang = new SelectList(NhaSanXuatBus.DanhSach(), "MaHang", "TenHang");
+            ViewBag.MaLoai = new SelectList(LoaiSanPhamBus.DanhSach(), "MaLoai", "TenLoai");
+            ViewBag.MaTinhTrang = new SelectList(TinhTrangSanPhamBus.DanhSach(), "MaTinhTrang", "TenTinhTrang");
+            var db = SanPhamBus.ChiTiet(id);
+            return View(db);
         }
 
         // POST: Admin/SanPhamAdmin/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, SanPham sp)
         {
             try
             {
                 // TODO: Add update logic here
-
+                SanPhamBus.Sua(id, sp);
                 return RedirectToAction("Index");
             }
             catch
@@ -72,7 +79,8 @@ namespace Template.Areas.Admin.Controllers
         // GET: Admin/SanPhamAdmin/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var db = SanPhamBus.ChiTiet(id);
+            return View(db);
         }
 
         // POST: Admin/SanPhamAdmin/Delete/5
@@ -82,7 +90,7 @@ namespace Template.Areas.Admin.Controllers
             try
             {
                 // TODO: Add delete logic here
-
+                SanPhamBus.Xoa(id);
                 return RedirectToAction("Index");
             }
             catch
