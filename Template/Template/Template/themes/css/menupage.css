@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: sans-serif;
+}
+#menupage ul {
+    list-style-type: none;
+    text-align: center;
+}
+#menupage li {
+    display: inline-block;
+    width: 60px;
+    height: 40px;
+    line-height: 40px;
+    margin-left: -5px;
+}
+#menupage a {
+    text-decoration: none;
+
+    display: block;
+}
+#menupage a:hover {
+    background: #F1F1F1;
+    color: #333;
+}

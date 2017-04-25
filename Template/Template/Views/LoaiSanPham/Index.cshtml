@@ -1,0 +1,44 @@
+﻿@model PetaPoco.Page<ShopDienThoaiConnection.SanPham>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<!-- Header End====================================================================== -->
+<div id="mainBody">
+    <div class="container">
+        <div class="row">
+            <!-- Sidebar ================================================== -->
+            @{
+                var sidePartital = Html.Partial("_SideBar");
+                sidePartital = new MvcHtmlString(sidePartital.ToString());
+            }
+            @sidePartital;
+            <!-- Sidebar end=============================================== -->
+            <center><h2 style="height: 60px">Danh sách sản phẩm</h2></center>
+            <ul class="thumbnails">
+                @foreach (var item in Model.Items)
+                {
+                    <li class="span3">
+                        <div class="thumbnail">
+                            <i class="tag"></i>
+                            <a href="@Url.Action("Details", "SanPham", new {id = item.MaSP})"><img style="width: 100px; height: 100px" src="~/Template/themes/images/products/@item.HinhAnh" alt=""></a>
+                            <div class="caption">
+                                <h5>@item.TenSP</h5>
+                                <h4><a class="btn" href="@Url.Action("Details", "SanPham", new {id = item.MaSP})">VIEW</a> <span class="pull-right">@item.GiaBan</span></h4>
+                            </div>
+                        </div>
+                    </li>
+                }
+            </ul>
+        </div>
+        <div id="menupage">
+            <ul class="pagination">
+                @for (int i = 1; i <= Model.TotalPages; i++)
+                {
+                    <li>@Html.ActionLink(i.ToString(), "Index", new { page = i })</li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+

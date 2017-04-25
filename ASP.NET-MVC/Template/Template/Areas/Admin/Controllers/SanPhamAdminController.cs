@@ -40,6 +40,18 @@ namespace Template.Areas.Admin.Controllers
             try
             {
                 // TODO: Add insert logic here
+                if (HttpContext.Request.Files.Count > 0)
+                {
+                    var hpf = HttpContext.Request.Files[0];
+                    if (hpf.ContentLength > 0)
+                    {
+                        string fileName = Guid.NewGuid().ToString();
+                        string fullPathWithFileName = "~Template/Template/Template/themes/images/products/large/" +
+                                                      fileName + ".jpg";
+                        hpf.SaveAs(Server.MapPath(fullPathWithFileName));
+                        sp.HinhAnh = fullPathWithFileName;
+                    }
+                }
                 SanPhamBus.Them(sp);
                 return RedirectToAction("Index");
             }
