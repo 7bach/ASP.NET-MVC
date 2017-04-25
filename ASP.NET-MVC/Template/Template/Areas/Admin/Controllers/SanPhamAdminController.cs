@@ -46,10 +46,10 @@ namespace Template.Areas.Admin.Controllers
                     if (hpf.ContentLength > 0)
                     {
                         string fileName = Guid.NewGuid().ToString();
-                        string fullPathWithFileName = "~Template/Template/Template/themes/images/products/large/" +
+                        string fullPathWithFileName = "~/Template/themes/images/products/" +
                                                       fileName + ".jpg";
                         hpf.SaveAs(Server.MapPath(fullPathWithFileName));
-                        sp.HinhAnh = fullPathWithFileName;
+                        sp.HinhAnh = fileName + ".jpg";
                     }
                 }
                 SanPhamBus.Them(sp);
