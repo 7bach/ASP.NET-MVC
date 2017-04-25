@@ -213,6 +213,7 @@
     <Compile Include="Models\Bus\LoaiSanPhamBus.cs" />
     <Compile Include="Models\Bus\NhaSanXuatBus.cs" />
     <Compile Include="Models\Bus\SanPhamBus.cs" />
+    <Compile Include="Models\Bus\TinhTrangSanPhamBus.cs" />
     <Compile Include="Models\Generated\Database.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1284,6 +1285,9 @@
     <Content Include="Areas\Admin\Views\SanPhamAdmin\Index.cshtml" />
     <Content Include="Areas\Admin\Views\NhaSanXuatAdmin\Index.cshtml" />
     <Content Include="Areas\Admin\Views\LoaiSanPhamAdmin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\SanPhamAdmin\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\NhaSanXuatAdmin\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiSanPhamAdmin\Create.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

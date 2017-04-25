@@ -23,12 +23,19 @@ namespace Template.Models.Bus
         public static SanPham ChiTiet(int id)
         {
             var db=new ShopDienThoaiConnectionDB();
-            return db.SingleOrDefault<SanPham>("select * from SanPham where MaSP=@0", id);
+            return db.SingleOrDefault<SanPham>("select * from SanPham where BiXoa=0 and MaSP=@0", id);
         }
         public static IEnumerable<SanPham> SanPhamHot()
         {
             var db = new ShopDienThoaiConnectionDB();
-            return db.Query<SanPham>("select TOP 3 * from SanPham where GhiChu=N'New'");
+            return db.Query<SanPham>("select TOP 3 * from SanPham where BiXoa=0 and GhiChu=N'New'");
+        }
+
+
+        public static void Them(SanPham sp)
+        {
+            var db=new ShopDienThoaiConnectionDB();
+            db.Insert(sp);
         }
     }
 }

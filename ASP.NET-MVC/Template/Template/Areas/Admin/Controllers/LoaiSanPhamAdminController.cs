@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ShopDienThoaiConnection;
+using Template.Models.Bus;
 
 namespace Template.Areas.Admin.Controllers
 {
@@ -28,12 +30,12 @@ namespace Template.Areas.Admin.Controllers
 
         // POST: Admin/LoaiSanPhamAdmin/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(LoaiSP lsp)
         {
             try
             {
                 // TODO: Add insert logic here
-
+                LoaiSanPhamBus.Them(lsp);
                 return RedirectToAction("Index");
             }
             catch

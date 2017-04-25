@@ -135,7 +135,7 @@ namespace ShopDienThoaiConnection
     {
 		[Column] public int MaHang { get; set; }
 		[Column] public string TenHang { get; set; }
-		[Column] public int? BiXoa { get; set; }
+		[Column] public int BiXoa { get; set; }
 	}
     
 	[TableName("dbo.LoaiSP")]
@@ -145,7 +145,7 @@ namespace ShopDienThoaiConnection
     {
 		[Column] public int MaLoai { get; set; }
 		[Column] public string TenLoai { get; set; }
-		[Column] public int? BiXoa { get; set; }
+		[Column] public int BiXoa { get; set; }
 	}
     
 	[TableName("dbo.LoaiTK")]
@@ -172,7 +172,7 @@ namespace ShopDienThoaiConnection
 		[Column] public int? SoLuong { get; set; }
 		[Column] public string ThongTin { get; set; }
 		[Column] public string GhiChu { get; set; }
-		[Column] public int? BiXoa { get; set; }
+		[Column] public int BiXoa { get; set; }
 	}
     
 	[TableName("dbo.sysdiagrams")]

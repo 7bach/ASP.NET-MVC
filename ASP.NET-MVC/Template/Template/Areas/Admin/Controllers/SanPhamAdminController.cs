@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ShopDienThoaiConnection;
+using Template.Models.Bus;
 
 namespace Template.Areas.Admin.Controllers
 {
@@ -23,17 +25,20 @@ namespace Template.Areas.Admin.Controllers
         // GET: Admin/SanPhamAdmin/Create
         public ActionResult Create()
         {
+            ViewBag.MaHang = new SelectList(NhaSanXuatBus.DanhSach(), "MaHang", "TenHang");
+            ViewBag.MaLoai = new SelectList(LoaiSanPhamBus.DanhSach(), "MaLoai", "TenLoai");
+            ViewBag.MaTinhTrang = new SelectList(TinhTrangSanPhamBus.DanhSach(), "MaTinhTrang", "TenTinhTrang");
             return View();
         }
 
         // POST: Admin/SanPhamAdmin/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(SanPham sp)
         {
             try
             {
                 // TODO: Add insert logic here
-
+                SanPhamBus.Them(sp);
                 return RedirectToAction("Index");
             }
             catch

@@ -17,5 +17,6 @@ namespace Template.Controllers
             var DSSanPham = LoaiSanPhamBus.DanhSachChiTetPage(id, pageNumber, itemsPerPage);
             return View(DSSanPham);
         }
+
     }
 }
