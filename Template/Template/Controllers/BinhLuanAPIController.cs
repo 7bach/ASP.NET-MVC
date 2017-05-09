@@ -4,6 +4,9 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Microsoft.AspNet.Identity;
+using ShopDienThoaiConnection;
+using Template.Models.Bus;
 
 namespace Template.Controllers
 {
@@ -22,8 +25,13 @@ namespace Template.Controllers
         }
 
         // POST: api/BinhLuanAPI
-        public void Post([FromBody]string value)
+        public void Post([FromBody]BinhLuan bl)
         {
+            bl.MaTK = User.Identity.GetUserId();
+            bl.TinhTrang = 0;
+            bl.ThoiGian = DateTime.Now;
+            bl.TenTK = User.Identity.Name;
+            BinhLuanBus.ThemBinhLuan(bl);
         }
 
         // PUT: api/BinhLuanAPI/5

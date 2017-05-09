@@ -14,7 +14,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Mvc;
 using PetaPoco;
 
 namespace ShopDienThoaiConnection
@@ -107,6 +106,89 @@ namespace ShopDienThoaiConnection
 	
 
     
+	[TableName("dbo.__MigrationHistory")]
+	[PrimaryKey("MigrationId", AutoIncrement=false)]
+	[ExplicitColumns]
+    public partial class __MigrationHistory : ShopDienThoaiConnectionDB.Record<__MigrationHistory>  
+    {
+		[Column] public string MigrationId { get; set; }
+		[Column] public string ContextKey { get; set; }
+		[Column] public byte[] Model { get; set; }
+		[Column] public string ProductVersion { get; set; }
+	}
+    
+	[TableName("dbo.AspNetRoles")]
+	[PrimaryKey("Id", AutoIncrement=false)]
+	[ExplicitColumns]
+    public partial class AspNetRole : ShopDienThoaiConnectionDB.Record<AspNetRole>  
+    {
+		[Column] public string Id { get; set; }
+		[Column] public string Name { get; set; }
+	}
+    
+	[TableName("dbo.AspNetUserClaims")]
+	[PrimaryKey("Id")]
+	[ExplicitColumns]
+    public partial class AspNetUserClaim : ShopDienThoaiConnectionDB.Record<AspNetUserClaim>  
+    {
+		[Column] public int Id { get; set; }
+		[Column] public string UserId { get; set; }
+		[Column] public string ClaimType { get; set; }
+		[Column] public string ClaimValue { get; set; }
+	}
+    
+	[TableName("dbo.AspNetUserLogins")]
+	[PrimaryKey("LoginProvider", AutoIncrement=false)]
+	[ExplicitColumns]
+    public partial class AspNetUserLogin : ShopDienThoaiConnectionDB.Record<AspNetUserLogin>  
+    {
+		[Column] public string LoginProvider { get; set; }
+		[Column] public string ProviderKey { get; set; }
+		[Column] public string UserId { get; set; }
+	}
+    
+	[TableName("dbo.AspNetUserRoles")]
+	[PrimaryKey("UserId", AutoIncrement=false)]
+	[ExplicitColumns]
+    public partial class AspNetUserRole : ShopDienThoaiConnectionDB.Record<AspNetUserRole>  
+    {
+		[Column] public string UserId { get; set; }
+		[Column] public string RoleId { get; set; }
+	}
+    
+	[TableName("dbo.AspNetUsers")]
+	[PrimaryKey("Id", AutoIncrement=false)]
+	[ExplicitColumns]
+    public partial class AspNetUser : ShopDienThoaiConnectionDB.Record<AspNetUser>  
+    {
+		[Column] public string Id { get; set; }
+		[Column] public string Email { get; set; }
+		[Column] public bool EmailConfirmed { get; set; }
+		[Column] public string PasswordHash { get; set; }
+		[Column] public string SecurityStamp { get; set; }
+		[Column] public string PhoneNumber { get; set; }
+		[Column] public bool PhoneNumberConfirmed { get; set; }
+		[Column] public bool TwoFactorEnabled { get; set; }
+		[Column] public DateTime? LockoutEndDateUtc { get; set; }
+		[Column] public bool LockoutEnabled { get; set; }
+		[Column] public int AccessFailedCount { get; set; }
+		[Column] public string UserName { get; set; }
+	}
+    
+	[TableName("dbo.BinhLuan")]
+	[PrimaryKey("MaBL")]
+	[ExplicitColumns]
+    public partial class BinhLuan : ShopDienThoaiConnectionDB.Record<BinhLuan>  
+    {
+		[Column] public int MaBL { get; set; }
+		[Column] public int MaSP { get; set; }
+		[Column] public string MaTK { get; set; }
+		[Column] public string TenTK { get; set; }
+		[Column] public string NoiDung { get; set; }
+		[Column] public DateTime ThoiGian { get; set; }
+		[Column] public int TinhTrang { get; set; }
+	}
+    
 	[TableName("dbo.ChiTietSP")]
 	[ExplicitColumns]
     public partial class ChiTietSP : ShopDienThoaiConnectionDB.Record<ChiTietSP>  
@@ -171,8 +253,7 @@ namespace ShopDienThoaiConnection
 		[Column] public int? TinhTrang { get; set; }
 		[Column] public int? GiaBan { get; set; }
 		[Column] public int? SoLuong { get; set; }
-        [AllowHtml]
-        [Column] public string ThongTin { get; set; }
+		[Column] public string ThongTin { get; set; }
 		[Column] public string GhiChu { get; set; }
 		[Column] public int BiXoa { get; set; }
 	}
@@ -197,13 +278,13 @@ namespace ShopDienThoaiConnection
 		[Column] public int MaTK { get; set; }
 		[Column] public string TenTaiKhoan { get; set; }
 		[Column] public string MatKhau { get; set; }
-		[Column] public int? MaLoaiTK { get; set; }
+		[Column] public int MaLoaiTK { get; set; }
 		[Column] public string HoTen { get; set; }
 		[Column] public string Email { get; set; }
 		[Column] public string SoDienThoai { get; set; }
 		[Column] public DateTime? NgaySinh { get; set; }
 		[Column] public int? MaTinhThanh { get; set; }
-		[Column] public int? BiXoa { get; set; }
+		[Column] public int BiXoa { get; set; }
 	}
     
 	[TableName("dbo.TinhThanh")]

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Template.Models.Bus;
+using Template.Models.ViewModels;
 
 namespace Template.Controllers
 {
@@ -19,8 +20,10 @@ namespace Template.Controllers
         // GET: SanPham/Details/5
         public ActionResult Details(int id)
         {
+            var BinhLuan = BinhLuanBus.DanhSach(id);
             var ChiTiet = SanPhamBus.ChiTiet(id);
-            return View(ChiTiet);
+            var data = new SanPhamViewModels() {SanPham = ChiTiet, BinhLuanSP = BinhLuan};
+            return View(data);
         }
 
         // GET: SanPham/Create

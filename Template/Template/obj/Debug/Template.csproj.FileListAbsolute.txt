@@ -83,6 +83,6 @@ D:\Cache\DemoLTWeb2\Project\Template\Template\bin\Microsoft.Owin.Security.OAuth.
 D:\Cache\DemoLTWeb2\Project\Template\Template\bin\Microsoft.Owin.Security.Google.xml
 D:\Cache\DemoLTWeb2\Project\Template\Template\bin\Microsoft.Owin.Security.Twitter.xml
 D:\Cache\DemoLTWeb2\Project\Template\Template\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-D:\Cache\DemoLTWeb2\Project\Template\Template\obj\Debug\Template.csprojResolveAssemblyReference.cache
 D:\Cache\DemoLTWeb2\Project\Template\Template\obj\Debug\Template.dll
 D:\Cache\DemoLTWeb2\Project\Template\Template\obj\Debug\Template.pdb
+D:\Cache\DemoLTWeb2\Project\Template\Template\obj\Debug\Template.csprojResolveAssemblyReference.cache

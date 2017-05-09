@@ -1,4 +1,4 @@
-﻿@model ShopDienThoaiConnection.SanPham
+﻿@model Template.Models.ViewModels.SanPhamViewModels
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
@@ -23,9 +23,9 @@
                 <div class="row">
                     <div id="gallery" class="span3">
                         <a href="themes/images/products/large/f1.jp" title="Fujifilm FinePix S2950 Digital Camera">
-                            <img src="~/Template/themes/images/products/@Model.HinhAnh" style="width:100%" alt="Fujifilm FinePix S2950 Digital Camera" />
+                            <img src="~/Template/themes/images/products/@Model.SanPham.HinhAnh" style="width:100%" alt="Fujifilm FinePix S2950 Digital Camera" />
                         </a>
-                        <div id="differentview" class="moreOptopm carousel slide">
+                        @*<div id="differentview" class="moreOptopm carousel slide">
                             <div class="carousel-inner">
                                 <div class="item active">
                                     <a href="themes/images/products/large/f1.jpg"> <img style="width:29%" src="themes/images/products/large/f1.jpg" alt="" /></a>
@@ -38,11 +38,11 @@
                                     <a href="themes/images/products/large/f2.jpg"> <img style="width:29%" src="themes/images/products/large/f2.jpg" alt="" /></a>
                                 </div>
                             </div>
-                            <!--
+                            
             <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
             <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
-            -->
-                        </div>
+            
+                        </div>*@
 
                         <div class="btn-toolbar">
                             <div class="btn-group">
@@ -56,11 +56,11 @@
                         </div>
                     </div>
                     <div class="span6">
-                        <h3>@Model.TenSP</h3>
+                        <h3>@Model.SanPham.TenSP</h3>
                         <hr class="soft" />
                         <form class="form-horizontal qtyFrm">
                             <div class="control-group">
-                                <label class="control-label"><span>@Model.GiaBan</span></label>
+                                <label class="control-label"><span>@Model.SanPham.GiaBan</span></label>
                                 <div class="controls">
                                     <input type="number" class="span1" placeholder="Qty." />
                                     <button type="submit" class="btn btn-large btn-primary pull-right"> Add to cart <i class=" icon-shopping-cart"></i></button>
@@ -69,7 +69,7 @@
                         </form>
 
                         <hr class="soft" />
-                        <h4>Số lượng máy trong kho: @Model.SoLuong</h4>
+                        <h4>Số lượng máy trong kho: @Model.SanPham.SoLuong</h4>
                         <form class="form-horizontal qtyFrm pull-right">
                             <div class="control-group">
                                 <label class="control-label"><span>Color</span></label>
@@ -84,13 +84,47 @@
                             </div>
                         </form>
                         <hr class="soft clr" />
-                        @Html.Raw(@Model.ThongTin)
+                        @Html.Raw(@Model.SanPham.ThongTin)
+                        <br class="clr" />
+                        <a href="#" name="detail"></a>
+                        <hr class="soft" />
+
+                        <hr class="soft clr" />
+                        <h3>Bình luận</h3>
+
+                        <textarea id="NoiDung"></textarea>
+                        <input type="button" value="Submit" onclick="posComment()" />
+
+                        <div id="comment-box">
+                            @foreach (var item in Model.BinhLuanSP)
+                            {
+                                <div id="comment">
+                                    <div class="comment-name"><h5>@item.TenTK</h5></div>
+                                    <div class="comment-content">@item.NoiDung</div>
+                                </div>
+                            }
+                        </div>
                         <br class="clr" />
                         <a href="#" name="detail"></a>
                         <hr class="soft" />
                     </div>
+
                 </div>
             </div>
         </div>
     </div>
 </div>
+@section scripts{
+    <script>
+        function posComment() {
+            const NoiDung = $("#NoiDung").val();
+            const MaSP = @Model.SanPham.MaSP;
+            const TenTK = "@User.Identity.Name";
+            $.post("/api/BinhLuanAPI",
+                { "MaSP": MaSP, "NoiDung": NoiDung }, function(data) {
+                    $("#comment-box").prepend("<div id=\"comment\"><div class=\"comment-name\"><h5>"+TenTK+"</h5></div><div class=\"comment-content\">"+NoiDung+"</div></div>");
+                    alert("Đã thêm bình luận");
+                });
+        }
+    </script>
+}
