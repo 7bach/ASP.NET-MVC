@@ -1,0 +1,113 @@
+﻿@model ShopDienThoaiConnection.SanPham
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_MainLayoutAdmin.cshtml";
+}
+
+<h2>XÓA</h2>
+
+<h3>Bạn muốn xóa sản phẩm này?</h3>
+<div>
+    <h4>Sản phẩm</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <label class="control-label col-lg-2">Mã sản phẩm</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaSP)
+        </dd>
+
+        <dt>
+            <label class="control-label col-lg-2">Tên sản phẩm</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenSP)
+        </dd>
+
+        <dt>
+            <label class="control-label col-lg-2">Mã nhà sản xuất</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaHang)
+        </dd>
+
+        <dt>
+            <label class="control-label col-lg-2">Mã loại sản phẩm</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaLoai)
+        </dd>
+
+        <dt>
+            <label class="control-label col-lg-2">Url hình ảnh</label>
+        </dt>
+
+        <dd>
+            <img style="width: 100px; height: 100px" src="~/Template/themes/images/products/@Html.DisplayFor(model => model.HinhAnh)">
+        </dd>
+
+        <dt>
+            <label class="control-label col-lg-2">Mã tình trạng</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TinhTrang)
+        </dd>
+
+        <dt>
+            <label class="control-label col-lg-2">Giá bán</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiaBan)
+        </dd>
+
+        <dt>
+            <label class="control-label col-lg-2">Số lượng</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoLuong)
+        </dd>
+
+        <dt>
+            <label class="control-label col-lg-2">Thông tin</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThongTin)
+        </dd>
+
+        <dt>
+            <label class="control-label col-lg-2">Ghi chú</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GhiChu)
+        </dd>
+
+        <dt>
+            <label class="control-label col-lg-2">Bị xóa</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BiXoa)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Quay về trang chủ", "Index")
+        </div>
+    }
+</div>

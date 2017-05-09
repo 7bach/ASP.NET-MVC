@@ -1,0 +1,43 @@
+﻿@model ShopDienThoaiConnection.LoaiSP
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_MainLayoutAdmin.cshtml";
+}
+
+<h2>CHI TIẾT</h2>
+
+<div>
+    <h4>Loại sản phẩm</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <label class="control-label col-lg-2">Mã loại</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaLoai)
+        </dd>
+
+        <dt>
+            <label class="control-label col-lg-2">Tên loại</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenLoai)
+        </dd>
+
+        <dt>
+            <label class="control-label col-lg-2">Bị xóa</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BiXoa)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "Edit", new {  id = Model.MaLoai }) |
+    @Html.ActionLink("Quay lại trang chủ", "Index")
+</p>

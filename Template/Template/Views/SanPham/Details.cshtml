@@ -1,4 +1,5 @@
-﻿@model Template.Models.ViewModels.SanPhamViewModels
+﻿@using Microsoft.Ajax.Utilities
+@model Template.Models.ViewModels.SanPhamViewModels
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
@@ -91,10 +92,14 @@
 
                         <hr class="soft clr" />
                         <h3>Bình luận</h3>
+                        @if (!(User.Identity.Name.IsEmpty()))
+                        {
+                            <textarea id="NoiDung"></textarea>
+                            <input type="button" value="Submit" onclick="posComment()" />
 
-                        <textarea id="NoiDung"></textarea>
-                        <input type="button" value="Submit" onclick="posComment()" />
-
+                        }
+                            
+  
                         <div id="comment-box">
                             @foreach (var item in Model.BinhLuanSP)
                             {
