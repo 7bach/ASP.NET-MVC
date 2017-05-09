@@ -40,7 +40,7 @@ namespace Template.Models.Bus
         public static void Sua(int id, SanPham sp)
         {
             var db = new ShopDienThoaiConnectionDB();
-            db.Update<SanPham>("Set TenSP = @0, BiXoa=0 where MaSP=@1", sp.TenSP, id);
+            db.Update<SanPham>("Set TenSP=@0, MaHang=@1, MaLoai=@2, HinhAnh=@3, TinhTrang=@4, GiaBan=@5, SoLuong=@6, ThongTin=@7, GhiChu=@8 where MaSP=@9", sp.TenSP, sp.MaHang, sp.MaLoai, sp.HinhAnh, sp.TinhTrang, sp.GiaBan, sp.SoLuong, sp.ThongTin, sp.GhiChu, id);
         }
         public static void Xoa(int id)
         {

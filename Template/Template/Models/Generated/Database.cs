@@ -14,6 +14,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 using PetaPoco;
 
 namespace ShopDienThoaiConnection
@@ -170,7 +171,8 @@ namespace ShopDienThoaiConnection
 		[Column] public int? TinhTrang { get; set; }
 		[Column] public int? GiaBan { get; set; }
 		[Column] public int? SoLuong { get; set; }
-		[Column] public string ThongTin { get; set; }
+        [AllowHtml]
+        [Column] public string ThongTin { get; set; }
 		[Column] public string GhiChu { get; set; }
 		[Column] public int BiXoa { get; set; }
 	}

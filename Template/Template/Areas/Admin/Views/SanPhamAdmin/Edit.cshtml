@@ -82,7 +82,7 @@
         <div class="form-group">
             <label class="control-label col-lg-2">Thông tin</label>
             <div class="col-md-6">
-                @Html.EditorFor(model => model.ThongTin, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextAreaFor(model => model.ThongTin, new { @class = "ckeditor" })
                 @Html.ValidationMessageFor(model => model.ThongTin, "", new { @class = "text-danger" })
             </div>
         </div>

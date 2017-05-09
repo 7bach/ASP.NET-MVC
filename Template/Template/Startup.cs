@@ -34,8 +34,8 @@ namespace Template
                 //Here we create a Admin super user who will maintain the website                  
 
                 var user = new ApplicationUser();
-                user.UserName = "shanu";
-                user.Email = "syedshanumcain@gmail.com";
+                user.UserName = "admin@gmail.com";
+                user.Email = "admin@gmail.com";
 
                 string userPWD = "A@Z200711";
 
